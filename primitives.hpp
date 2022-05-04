@@ -8,6 +8,13 @@ struct piece { // 1 byte
   piece(const uint8_t type, const uint8_t color) : color_{color}, type_{type} {}
 
   piece() : color_{3} {}
+
+  bool operator==(const piece p_val) {
+    return (
+      (p_val.color_ == color_) &
+      (p_val.type_ == type_)
+      );
+  }
 };
 
 struct C_cord { // 1 byte

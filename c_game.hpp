@@ -42,6 +42,8 @@ class Cboard {
   std::unordered_set<C_move> av_moves() const;
   
   bool is_legal();
+
+  friend Cboard from_pgn();
 };
 
 
@@ -123,9 +125,13 @@ std::unordered_set<C_move> Cboard::square_moves(C_cord pos) {
         }
       }
 
-    if (at_cord(C_cord{pos.x, (int)pos.y + 1}) == 3) break;
+      if (at_cord(C_cord{pos.x, pos.y + at_pos.color_ * 2 - 1}) == 3) break;
 
-    moves_list.insert(C_cord{pos.x, (int)pos.y + 1});
+      moves_list.insert(C_cord{pos.x, (int)pos.y + 1});
+
+      if (((int)pos.y * (-6) - 7) == at_pos.color_) if (at_cord(C_cord{pos.x, pos.y + at_pos.color_ * 4 - 2}) == 3) {}
+
+      if (at_cord(last_move.end).type_ == piece{})
       
     break;
     case 1:

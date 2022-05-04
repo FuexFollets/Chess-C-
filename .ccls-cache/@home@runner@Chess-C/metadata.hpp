@@ -119,3 +119,7 @@ namespace diff {
 
   //auto all_pieces{std::make_tuple(bishop, )};
 }
+
+
+
+
